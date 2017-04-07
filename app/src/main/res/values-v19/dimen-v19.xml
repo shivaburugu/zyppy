@@ -1,0 +1,5 @@
+<resources>
+
+    <dimen name="fab_margin_fix">@dimen/dimen_16dp</dimen>
+
+</resources>

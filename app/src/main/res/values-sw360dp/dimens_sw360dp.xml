@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Scaling factor 360/320 = 1.125 all values here scaled defaultdp * 1 -->
+
+    <dimen name="dimen_9sp">10.125sp</dimen>
+    <dimen name="dimen_10sp">11.25sp</dimen>
+    <dimen name="dimen_11sp">12.375sp</dimen>
+    <dimen name="dimen_12sp">13.5sp</dimen>
+    <dimen name="dimen_13sp">14.625sp</dimen>
+    <dimen name="dimen_14sp">15.75sp</dimen>
+    <dimen name="dimen_18sp">20.25sp</dimen>
+    <dimen name="dimen_24sp">27sp</dimen>
+    <dimen name="dimen_16sp">18sp</dimen>
+
+    <dimen name="dimen_0_5dp">0.5625dp</dimen>
+    <dimen name="dimen_1dp">1.125dp</dimen>
+    <dimen name="dimen_1_77dp">1.99125dp</dimen>
+    <dimen name="dimen_2dp">2.25dp</dimen>
+    <dimen name="dimen_4dp">4.5dp</dimen>
+    <dimen name="dimen_5_33dp">5.99625dp</dimen>
+    <dimen name="dimen_6dp">6.75dp</dimen>
+    <dimen name="dimen_8dp">9dp</dimen>
+    <dimen name="dimen_12dp">13.5dp</dimen>
+    <dimen name="dimen_14dp">15.75dp</dimen>
+    <dimen name="dimen_16dp">18dp</dimen>
+    <dimen name="dimen_18dp">20.25dp</dimen>
+    <dimen name="dimen_19dp">21.375dp</dimen>
+    <dimen name="dimen_20dp">22.5dp</dimen>
+    <dimen name="dimen_24dp">27dp</dimen>
+    <dimen name="dimen_26dp">29.25dp</dimen>
+    <dimen name="dimen_32dp">36dp</dimen>
+    <dimen name="dimen_36dp">40.5dp</dimen>
+    <dimen name="dimen_48dp">54dp</dimen>
+    <dimen name="dimen_52dp">58.5dp</dimen>
+    <dimen name="dimen_60dp">67.5dp</dimen>
+    <dimen name="dimen_64dp">72dp</dimen>
+    <dimen name="dimen_80dp">90dp</dimen>
+    <dimen name="dimen_96dp">108dp</dimen>
+    <dimen name="dimen_160dp">180dp</dimen>
+    <dimen name="dimen_170dp">192dp</dimen>
+    <dimen name="dimen_200dp">225dp</dimen>
+    <dimen name="dimen_248dp">279dp</dimen>
+    <dimen name="dimen_272dp">306dp</dimen>
+
+</resources>

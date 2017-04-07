@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="zyppys.com.zyppys.MainActivity"
+    android:background="@drawable/background">
+
+
+    <ImageView
+        android:id="@+id/logo_zippys"
+        android:layout_above="@+id/dummycenter"
+        android:layout_width="@dimen/dimen_160dp"
+        android:layout_height="@dimen/dimen_160dp"
+        android:layout_marginBottom="@dimen/dimen_48dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/zyppys"/>
+
+    <View
+        android:id="@+id/dummycenter"
+        android:layout_centerInParent="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+    <include
+        android:id="@+id/phone_no_container"
+        layout="@layout/layout_custom_edit_text"
+        android:layout_below="@+id/dummycenter"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_52dp"
+        android:layout_marginLeft="@dimen/dimen_52dp"
+        android:layout_marginRight="@dimen/dimen_52dp"
+        android:layout_marginTop="@dimen/dimen_8dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_52dp"
+        android:layout_below="@id/phone_no_container"
+        android:text="@string/sign_in"
+        android:textAllCaps="false"
+        android:layout_marginTop="@dimen/dimen_24dp"
+        android:layout_marginLeft="@dimen/dimen_64dp"
+        android:layout_marginRight="@dimen/dimen_64dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_user_sign_up"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/dimen_24sp"
+        android:textColor="@color/text_dark"
+        android:layout_marginBottom="@dimen/dimen_16dp"/>
+</RelativeLayout>
