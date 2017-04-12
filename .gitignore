@@ -68,13 +68,4 @@ captures/
 .idea/libraries/support_media_compat_25_3_0.xml
 .idea/libraries/support_v4_25_3_0.xml
 .idea/libraries/support_vector_drawable_25_3_0.xml
-app/src/main/java/zyppys/com/zyppys/KeypadUtils.java
-app/src/main/res/anim/anim_fade_in.xml
-app/src/main/res/drawable/selector_phone.xml
-app/src/main/res/drawable/selector_phone_background.xml
-app/src/main/res/drawable-hdpi/close.png
-app/src/main/res/drawable-hdpi/phone_white.png
-app/src/main/res/drawable-xhdpi/close.png
-app/src/main/res/drawable-xhdpi/phone_white.png
-app/src/main/res/drawable-xxhdpi/close.png
-app/src/main/res/drawable-xxhdpi/phone_white.png
+
