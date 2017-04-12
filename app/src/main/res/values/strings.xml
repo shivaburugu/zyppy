@@ -8,7 +8,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="name">name</string>
     <string name="email_address">Email Address</string>
-    <string name="referral_code_if_any">Referral Code(If Any)</string>
-    <string name="terms_conditions"><![CDATA[<u>I agree to the terms & conditions</u>]]></string>
+    <string name="referral_code_if_any">Referral Code (If Any)</string>
+    <string name="terms_conditions"><u>I agree to the terms &amp; conditions</u></string>
     <string name="sign_up">Sign Up</string>
+    <string name="otp_verifiction">OTP Verifiction</string>
+    <string name="otp_help_text">Zyppys has sent a one time OTP messate to verify your phone number. Carrier charges may apply</string>
+    <string name="otp">OTP</string>
+    <string name="resend_otp"><u>Resend OTP?</u></string>
+    <string name="verify">Verify</string>
 </resources>

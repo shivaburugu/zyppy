@@ -275,16 +275,18 @@
 
     </RelativeLayout>
 
-    <CheckBox
+    <android.support.v7.widget.AppCompatCheckBox
         android:id="@+id/cb_terms_conditions"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/terms_conditions"
         android:gravity="center_vertical"
+        android:textColor="@color/white"
         android:autoLink="all"
-        android:paddingLeft="@dimen/dimen_16dp"
-        android:paddingStart="@dimen/dimen_16dp"
+        android:buttonTint="@color/white"
+        android:paddingLeft="@dimen/dimen_8dp"
+        android:paddingStart="@dimen/dimen_8dp"
         android:layout_marginTop="@dimen/dimen_8dp"/>
     <Button
         android:id="@+id/signup_button"
@@ -300,6 +302,7 @@
         android:layout_marginRight="@dimen/dimen_64dp"/>
 
     <ImageView
+        android:id="@+id/close_img"
         android:src="@drawable/close"
         android:layout_weight="1"
         android:layout_width="@dimen/dimen_32dp"

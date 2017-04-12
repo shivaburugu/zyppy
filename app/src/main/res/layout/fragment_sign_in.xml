@@ -32,7 +32,7 @@
         <RelativeLayout
             android:id="@+id/phone_container"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_48dp"
+            android:layout_height="@dimen/dimen_42dp"
             android:layout_marginLeft="@dimen/dimen_52dp"
             android:layout_marginRight="@dimen/dimen_52dp"
             android:layout_marginTop="@dimen/dimen_72dp"
@@ -107,13 +107,14 @@
             android:layout_marginRight="@dimen/dimen_64dp"/>
 
         <TextView
+            android:id="@+id/signup_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/new_user_sign_up"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:textSize="@dimen/dimen_16sp"
-            android:textColor="@color/text_dark"
+            android:textColor="@drawable/selector_dark_text"
             android:layout_marginBottom="@dimen/dimen_16dp"/>
     </RelativeLayout>
 </RelativeLayout>

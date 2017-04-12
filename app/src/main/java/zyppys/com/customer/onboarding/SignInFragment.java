@@ -1,8 +1,10 @@
 package zyppys.com.customer.onboarding;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
@@ -17,6 +19,9 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import zyppys.com.customer.R;
 import zyppys.com.customer.utils.KeypadUtils;
@@ -38,18 +43,36 @@ public class SignInFragment extends Fragment {
     private Handler mHandler = new Handler();
     private View contentLayout;
     private View rootView;
-
+    private OnBoardingListener mListener;
+    private TextView signUpText;
+    private Bundle bundle;
+    private boolean showAnimation;
     public SignInFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        bundle = getArguments();
+        if(bundle != null) {
+            showAnimation = bundle.getBoolean(OnboardingActivity.EXTRA_SHOW_ANIM);
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_sign_in, container, false);
         contentLayout = rootView.findViewById(R.id.content_layout);
-        mHandler.postDelayed(contentShowRunnable,TIME_TO_WAIT_TO_SHOW_CONTENT);
+
+        if(showAnimation) {
+            showAnimation = false;
+            mHandler.postDelayed(contentShowRunnable, TIME_TO_WAIT_TO_SHOW_CONTENT);
+        } else {
+            contentLayout.setVisibility(View.VISIBLE);
+            showContentView();
+        }
         return rootView;
     }
 
@@ -66,6 +89,16 @@ public class SignInFragment extends Fragment {
     private void showContentView(){
         phoneContainer = (RelativeLayout)rootView.findViewById(R.id.phone_container);
         fl_phonecontainer = (FrameLayout)rootView.findViewById(R.id.phone_icon_container);
+        signUpText = (TextView)rootView.findViewById(R.id.signup_text);
+
+        signUpText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mListener != null){
+                    mListener.onSignupSelected();
+                }
+            }
+        });
 
         iv_phone = (ImageView)rootView.findViewById(R.id.phone_icon);
         et_phone = (EditText)rootView.findViewById(R.id.phone_no);
@@ -77,6 +110,14 @@ public class SignInFragment extends Fragment {
             }
         });
         signInButton = (Button)rootView.findViewById(R.id.signin_button);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mListener != null){
+                    mListener.onSignInSelected();
+                }
+            }
+        });
         et_phone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -125,6 +166,17 @@ public class SignInFragment extends Fragment {
                 iv_clear.setVisibility(View.GONE);
             }
         });
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnBoardingListener) {
+            mListener = (OnBoardingListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
 }

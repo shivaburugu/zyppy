@@ -15,11 +15,11 @@ import zyppys.com.customer.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SignupFragment extends Fragment {
+public class OTPFragment extends Fragment {
 
     private OnBoardingListener mListener;
-    private ImageView closeImage;
-    public SignupFragment() {
+    private ImageView closeImg;
+    public OTPFragment() {
         // Required empty public constructor
     }
 
@@ -27,13 +27,13 @@ public class SignupFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_signup, container, false);
-        closeImage = (ImageView)view.findViewById(R.id.close_img);
-        closeImage.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.fragment_otp, container, false);
+        closeImg = (ImageView)view.findViewById(R.id.close_img);
+        closeImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(mListener != null){
-                    mListener.onSignUpClosed();
+                    mListener.onSignInClosed();
                 }
             }
         });

@@ -9,5 +9,7 @@
     <color name="white">#ffffff</color>
     <color name="transparent">#00000000</color>
     <color name="dark_red">#ffcc0000</color>
+    <color name="banner_bg_color">#384C5B</color>
+
 
 </resources>
