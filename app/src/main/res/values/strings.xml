@@ -3,4 +3,12 @@
     <string name="sign_in">Sign in</string>
     <string name="new_user_sign_up">New User? Sign Up</string>
     <string name="phone_number">Phone Number</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">name</string>
+    <string name="email_address">Email Address</string>
+    <string name="referral_code_if_any">Referral Code(If Any)</string>
+    <string name="terms_conditions"><![CDATA[<u>I agree to the terms & conditions</u>]]></string>
+    <string name="sign_up">Sign Up</string>
 </resources>

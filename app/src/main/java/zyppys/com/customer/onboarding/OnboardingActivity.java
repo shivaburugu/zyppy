@@ -1,4 +1,4 @@
-package zyppys.com.zyppys;
+package zyppys.com.customer.onboarding;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,7 +15,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-public class MainActivity extends AppCompatActivity {
+import zyppys.com.customer.R;
+import zyppys.com.customer.utils.KeypadUtils;
+
+public class OnboardingActivity extends AppCompatActivity {
 
     private EditText et_phone;
     private RelativeLayout phoneContainer;
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run() {
             contentLayout.setVisibility(View.VISIBLE);
-            final Animation animationFadeIn = AnimationUtils.loadAnimation(MainActivity.this, R.anim.anim_fade_in);
+            final Animation animationFadeIn = AnimationUtils.loadAnimation(OnboardingActivity.this, R.anim.anim_fade_in);
             contentLayout.startAnimation(animationFadeIn);
             showContentView();
         }
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                 if(charSequence.toString().length() == 0){
-                    fl_phonecontainer.setBackgroundColor(ContextCompat.getColor(MainActivity.this,R.color.transparent));
+                    fl_phonecontainer.setBackgroundColor(ContextCompat.getColor(OnboardingActivity.this,R.color.transparent));
                     signInButton.setEnabled(false);
                     iv_clear.setVisibility(View.GONE);
                 } else if(charSequence.toString().length() > 0 && charSequence.toString().length() < MAX_PHONE_NUMBER_LENGTH){
@@ -103,8 +106,9 @@ public class MainActivity extends AppCompatActivity {
         rootLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                KeypadUtils.hideKeyboard(MainActivity.this);
+                KeypadUtils.hideKeyboard(OnboardingActivity.this);
                 et_phone.clearFocus();
+                iv_clear.setVisibility(View.GONE);
             }
         });
     }

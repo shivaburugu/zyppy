@@ -1,4 +1,4 @@
-package zyppys.com.zyppys;
+package zyppys.com.customer;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
