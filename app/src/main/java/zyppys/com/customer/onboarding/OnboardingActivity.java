@@ -43,12 +43,14 @@ public class OnboardingActivity extends AppCompatActivity implements OnBoardingL
     public void onSignInSelected() {
         getSupportFragmentManager()
                 .beginTransaction()
-                .setCustomAnimations( R.anim.slide_out_down, R.anim.slide_out_up,R.anim.slide_in_up, R.anim.slide_in_down)
+                .setCustomAnimations(
+                        R.anim.fragment_slide_right_enter,
+                        R.anim.fragment_slide_right_exit,
+                        R.anim.fragment_slide_left_enter,
+                        R.anim.fragment_slide_left_exit)
                 .replace(R.id.fragment_container, new OTPFragment())
                 .addToBackStack(null)
                 .commit();
-
-
     }
 
     @Override

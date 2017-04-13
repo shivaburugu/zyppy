@@ -9,11 +9,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -107,14 +109,8 @@ public class SignInFragment extends Fragment {
             public void onFocusChange(View view, boolean hasFocus) {
                 phoneContainer.setSelected(hasFocus);
                 iv_phone.setSelected(hasFocus);
-            }
-        });
-        signInButton = (Button)rootView.findViewById(R.id.signin_button);
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mListener != null){
-                    mListener.onSignInSelected();
+                if(hasFocus){
+                    iv_clear.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -133,12 +129,12 @@ public class SignInFragment extends Fragment {
                     iv_clear.setVisibility(View.GONE);
                 } else if(charSequence.toString().length() > 0 && charSequence.toString().length() < MAX_PHONE_NUMBER_LENGTH){
                     fl_phonecontainer.setBackgroundResource(R.drawable.selector_phone_background);
-                    fl_phonecontainer.setSelected(false);
+                    fl_phonecontainer.setEnabled(false);
                     signInButton.setEnabled(false);
                     iv_clear.setVisibility(View.VISIBLE);
                 } else if(charSequence.toString().length() == MAX_PHONE_NUMBER_LENGTH){
                     fl_phonecontainer.setBackgroundResource(R.drawable.selector_phone_background);
-                    fl_phonecontainer.setSelected(true);
+                    fl_phonecontainer.setEnabled(true);
                     signInButton.setEnabled(true);
                     iv_clear.setVisibility(View.VISIBLE);
                 }
@@ -147,6 +143,35 @@ public class SignInFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable editable) {
 
+            }
+        });
+
+        et_phone.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId== EditorInfo.IME_ACTION_DONE){
+                    KeypadUtils.hideKeyboard(getActivity());
+                    et_phone.clearFocus();
+                    iv_clear.setVisibility(View.GONE);
+                    if(et_phone.getText() != null && et_phone.getText().toString().length() == MAX_PHONE_NUMBER_LENGTH){
+                        //iv_phone.setSelected(true);
+                        //fl_phonecontainer.setSelected(true);
+                        fl_phonecontainer.setBackgroundResource(R.drawable.selector_phone_background);
+                    } else {
+                        //iv_phone.setSelected(false);
+                    }
+                }
+                return false;
+            }
+        });
+
+        signInButton = (Button)rootView.findViewById(R.id.signin_button);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mListener != null){
+                    mListener.onSignInSelected();
+                }
             }
         });
 

@@ -10,6 +10,6 @@
     <color name="transparent">#00000000</color>
     <color name="dark_red">#ffcc0000</color>
     <color name="banner_bg_color">#384C5B</color>
-
+    <color name="enabled_bg">#2D6E7B</color>
 
 </resources>
