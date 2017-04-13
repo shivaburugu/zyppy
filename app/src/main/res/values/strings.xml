@@ -16,4 +16,7 @@
     <string name="otp">OTP</string>
     <string name="resend_otp"><u>Resend OTP?</u></string>
     <string name="verify">Verify</string>
+    <string name="welcome_to_zyppys">Welcome to Zyppys</string>
+    <string name="enable_location">Enable Location</string>
+    <string name="skip">Skip</string>
 </resources>

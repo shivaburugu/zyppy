@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_dark"
+    tools:context="zyppys.com.customer.onboarding.WelcomeActivity">
+
+    <ImageView
+        android:id="@+id/logo_zippys"
+        android:layout_width="@dimen/dimen_120dp"
+        android:layout_height="@dimen/dimen_120dp"
+        android:layout_marginTop="@dimen/dimen_52dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/zyppys" />
+
+
+    <TextView
+        android:layout_below="@+id/logo_zippys"
+        android:id="@+id/welcome_Text1"
+        android:text="@string/welcome_to_zyppys"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_18sp"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_48dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_below="@+id/welcome_Text1"
+        android:id="@+id/welcome_Text2"
+        android:text="We need few things before get started"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_16sp"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_12dp"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/enable_location"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_52dp"
+        android:background="@drawable/drawable_button_white"
+        android:layout_below="@id/welcome_Text2"
+        android:text="@string/enable_location"
+        android:textColor="@color/text_dark"
+        android:enabled="false"
+        android:textAllCaps="false"
+        android:textSize="@dimen/dimen_16sp"
+        android:layout_marginTop="@dimen/dimen_24dp"
+        android:layout_marginLeft="@dimen/dimen_64dp"
+        android:layout_marginRight="@dimen/dimen_64dp"/>
+
+    <TextView
+        android:text="@string/skip"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dimen_32dp"/>
+
+</RelativeLayout>
