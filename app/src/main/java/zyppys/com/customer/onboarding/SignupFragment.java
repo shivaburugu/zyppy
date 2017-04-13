@@ -41,11 +41,9 @@ public class SignupFragment extends Fragment {
     private ImageView iv_phone;
     private ImageView iv_name;
     private ImageView iv_email;
-    private ImageView iv_referral;
     private FrameLayout fl_phonecontainer;
     private FrameLayout fl_namecontainer;
     private FrameLayout fl_emailcontainer;
-    private FrameLayout fl_referralcontainer;
     private ImageView iv_phone_clear;
     private ImageView iv_name_clear;
     private ImageView iv_email_clear;
@@ -61,27 +59,11 @@ public class SignupFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_signup, container, false);
-        phoneContainer = (RelativeLayout)view.findViewById(R.id.phone_container);
-        nameContainer = (RelativeLayout)view.findViewById(R.id.name_container);
-        emailContainer = (RelativeLayout)view.findViewById(R.id.email_container);
-        referralContainer = (RelativeLayout)view.findViewById(R.id.referral_container);
-        et_phone_no = (EditText)view.findViewById(R.id.phone_no);
-        et_name =  (EditText)view.findViewById(R.id.name);
-        et_email = (EditText) view.findViewById(R.id.email);
-        et_referral = (EditText) view.findViewById(R.id.referral);
-        closeImage = (ImageView)view.findViewById(R.id.close_img);
-        iv_phone = (ImageView)view.findViewById(R.id.phone_icon);
-        iv_name = (ImageView)view.findViewById(R.id.name_icon);
-        iv_email = (ImageView)view.findViewById(R.id.email_icon);
-        iv_referral = (ImageView)view.findViewById(R.id.referral_icon);
-        fl_phonecontainer = (FrameLayout)view.findViewById(R.id.phone_icon_container);
-        fl_namecontainer = (FrameLayout)view.findViewById(R.id.name_icon_container);
-        fl_emailcontainer = (FrameLayout)view.findViewById(R.id.email_icon_container);
-        fl_referralcontainer = (FrameLayout)view.findViewById(R.id.referral_icon_container);
-        iv_phone_clear = (ImageView)view.findViewById(R.id.phone_clear);
-        iv_name_clear = (ImageView) view.findViewById(R.id.name_clear);
-        iv_email_clear = (ImageView) view.findViewById(R.id.email_clear);
-        iv_referral_clear = (ImageView) view.findViewById(R.id.referral_clear);
+        initViews(view);
+        initPhoneNumberView();
+        initNameView();
+        initEmailView();
+        initReferralView();
 
         closeImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,113 +74,41 @@ public class SignupFragment extends Fragment {
             }
         });
 
+        return view;
+    }
 
-        et_phone_no.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+    private void initReferralView() {
+        et_referral.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
-                phoneContainer.setSelected(hasFocus);
-                iv_phone.setSelected(hasFocus);
+                referralContainer.setSelected(hasFocus);
+                et_referral.setSelected(hasFocus);
                 if(hasFocus){
-                    iv_phone_clear.setVisibility(View.VISIBLE);
+                    iv_referral_clear.setVisibility(View.VISIBLE);
                 }
             }
         });
-        et_phone_no.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                if(charSequence.toString().length() == 0){
-                    fl_phonecontainer.setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.transparent));
-                    iv_phone_clear.setVisibility(View.GONE);
-                } else if(charSequence.toString().length() > 0 && charSequence.toString().length() < MAX_PHONE_NUMBER_LENGTH){
-                    fl_phonecontainer.setBackgroundResource(R.drawable.selector_phone_background);
-                    fl_phonecontainer.setEnabled(false);
-                    iv_phone_clear.setVisibility(View.VISIBLE);
-                } else if(charSequence.toString().length() == MAX_PHONE_NUMBER_LENGTH){
-                    fl_phonecontainer.setBackgroundResource(R.drawable.selector_phone_background);
-                    fl_phonecontainer.setEnabled(true);
-                    iv_phone_clear.setVisibility(View.VISIBLE);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
-        et_phone_no.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        et_referral.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if(actionId== EditorInfo.IME_ACTION_NEXT){
-                    //KeypadUtils.hideKeyboard(getActivity());
-                    et_phone_no.clearFocus();
-                    iv_phone_clear.setVisibility(View.GONE);
-                    if(et_phone_no.getText() != null && et_phone_no.getText().toString().length() == MAX_PHONE_NUMBER_LENGTH){
-                        fl_phonecontainer.setBackgroundResource(R.drawable.selector_phone_background);
-                    } else {
-                    }
+                if(actionId== EditorInfo.IME_ACTION_DONE){
+                    KeypadUtils.hideKeyboard(getActivity());
+                    et_referral.clearFocus();
+                    iv_referral_clear.setVisibility(View.GONE);
                 }
                 return false;
             }
         });
-
-
-        et_name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        iv_referral_clear.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                nameContainer.setSelected(hasFocus);
-                iv_name.setSelected(hasFocus);
-                if(hasFocus){
-                    iv_name_clear.setVisibility(View.VISIBLE);
-                }
+            public void onClick(View view) {
+                et_referral.setText("");
             }
         });
-        et_name.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+    }
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                if(charSequence.toString().length() == 0){
-                    fl_namecontainer.setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.transparent));
-                    iv_name_clear.setVisibility(View.GONE);
-                } else if(charSequence.toString().length() > 0){
-                    fl_namecontainer.setBackgroundResource(R.drawable.selector_phone_background);
-                    fl_namecontainer.setEnabled(true);
-                    iv_name_clear.setVisibility(View.VISIBLE);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-        et_name.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if(actionId== EditorInfo.IME_ACTION_NEXT){
-                    //KeypadUtils.hideKeyboard(getActivity());
-                    et_name.clearFocus();
-                    iv_name_clear.setVisibility(View.GONE);
-                    if(et_name.getText() != null && et_name.getText().toString().length() > 0){
-                        fl_phonecontainer.setBackgroundResource(R.drawable.selector_phone_background);
-                    } else {
-                    }
-                }
-                return false;
-            }
-        });
-
+    private void initEmailView() {
         et_email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
@@ -249,23 +159,26 @@ public class SignupFragment extends Fragment {
                 return false;
             }
         });
+        iv_email_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                et_email.setText("");
+            }
+        });
+    }
 
-
-
-
-
-
-        et_referral.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+    private void initNameView() {
+        et_name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
-                referralContainer.setSelected(hasFocus);
-                et_referral.setSelected(hasFocus);
+                nameContainer.setSelected(hasFocus);
+                iv_name.setSelected(hasFocus);
                 if(hasFocus){
-                    iv_referral_clear.setVisibility(View.VISIBLE);
+                    iv_name_clear.setVisibility(View.VISIBLE);
                 }
             }
         });
-        /*et_referral.addTextChangedListener(new TextWatcher() {
+        et_name.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -275,12 +188,12 @@ public class SignupFragment extends Fragment {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                 if(charSequence.toString().length() == 0){
-                    fl_referralcontainer.setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.transparent));
-                    iv_referral_clear.setVisibility(View.GONE);
+                    fl_namecontainer.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.transparent));
+                    iv_name_clear.setVisibility(View.GONE);
                 } else if(charSequence.toString().length() > 0){
-                    fl_referralcontainer.setBackgroundResource(R.drawable.selector_phone_background);
-                    fl_referralcontainer.setEnabled(true);
-                    iv_referral_clear.setVisibility(View.VISIBLE);
+                    fl_namecontainer.setBackgroundResource(R.drawable.selector_phone_background);
+                    fl_namecontainer.setEnabled(true);
+                    iv_name_clear.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -288,25 +201,20 @@ public class SignupFragment extends Fragment {
             public void afterTextChanged(Editable editable) {
 
             }
-        });*/
-        et_referral.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        });
+        et_name.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if(actionId== EditorInfo.IME_ACTION_DONE){
-                    KeypadUtils.hideKeyboard(getActivity());
-                    et_referral.clearFocus();
-                    iv_referral_clear.setVisibility(View.GONE);
+                if(actionId== EditorInfo.IME_ACTION_NEXT){
+                    //KeypadUtils.hideKeyboard(getActivity());
+                    et_name.clearFocus();
+                    iv_name_clear.setVisibility(View.GONE);
+                    if(et_name.getText() != null && et_name.getText().toString().length() > 0){
+                        fl_phonecontainer.setBackgroundResource(R.drawable.selector_phone_background);
+                    } else {
+                    }
                 }
                 return false;
-            }
-        });
-
-
-
-        iv_phone_clear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                et_phone_no.setText("");
             }
         });
 
@@ -316,22 +224,91 @@ public class SignupFragment extends Fragment {
                 et_name.setText("");
             }
         });
-        iv_email_clear.setOnClickListener(new View.OnClickListener() {
+    }
+
+    private void initPhoneNumberView() {
+        et_phone_no.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void onClick(View view) {
-                et_email.setText("");
+            public void onFocusChange(View view, boolean hasFocus) {
+                phoneContainer.setSelected(hasFocus);
+                iv_phone.setSelected(hasFocus);
+                if(hasFocus){
+                    iv_phone_clear.setVisibility(View.VISIBLE);
+                }
             }
         });
-        iv_referral_clear.setOnClickListener(new View.OnClickListener() {
+        et_phone_no.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View view) {
-                et_referral.setText("");
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                if(charSequence.toString().length() == 0){
+                    fl_phonecontainer.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.transparent));
+                    iv_phone_clear.setVisibility(View.GONE);
+                } else if(charSequence.toString().length() > 0 && charSequence.toString().length() < MAX_PHONE_NUMBER_LENGTH){
+                    fl_phonecontainer.setBackgroundResource(R.drawable.selector_phone_background);
+                    fl_phonecontainer.setEnabled(false);
+                    iv_phone_clear.setVisibility(View.VISIBLE);
+                } else if(charSequence.toString().length() == MAX_PHONE_NUMBER_LENGTH){
+                    fl_phonecontainer.setBackgroundResource(R.drawable.selector_phone_background);
+                    fl_phonecontainer.setEnabled(true);
+                    iv_phone_clear.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
 
+        et_phone_no.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId== EditorInfo.IME_ACTION_NEXT){
+                    //KeypadUtils.hideKeyboard(getActivity());
+                    et_phone_no.clearFocus();
+                    iv_phone_clear.setVisibility(View.GONE);
+                    if(et_phone_no.getText() != null && et_phone_no.getText().toString().length() == MAX_PHONE_NUMBER_LENGTH){
+                        fl_phonecontainer.setBackgroundResource(R.drawable.selector_phone_background);
+                    } else {
+                    }
+                }
+                return false;
+            }
+        });
+        iv_phone_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                et_phone_no.setText("");
+            }
+        });
+    }
 
-
-        return view;
+    private void initViews(View view) {
+        phoneContainer = (RelativeLayout)view.findViewById(R.id.phone_container);
+        nameContainer = (RelativeLayout)view.findViewById(R.id.name_container);
+        emailContainer = (RelativeLayout)view.findViewById(R.id.email_container);
+        referralContainer = (RelativeLayout)view.findViewById(R.id.referral_container);
+        et_phone_no = (EditText)view.findViewById(R.id.phone_no);
+        et_name =  (EditText)view.findViewById(R.id.name);
+        et_email = (EditText) view.findViewById(R.id.email);
+        et_referral = (EditText) view.findViewById(R.id.referral);
+        closeImage = (ImageView)view.findViewById(R.id.close_img);
+        iv_phone = (ImageView)view.findViewById(R.id.phone_icon);
+        iv_name = (ImageView)view.findViewById(R.id.name_icon);
+        iv_email = (ImageView)view.findViewById(R.id.email_icon);
+        fl_phonecontainer = (FrameLayout)view.findViewById(R.id.phone_icon_container);
+        fl_namecontainer = (FrameLayout)view.findViewById(R.id.name_icon_container);
+        fl_emailcontainer = (FrameLayout)view.findViewById(R.id.email_icon_container);
+        iv_phone_clear = (ImageView)view.findViewById(R.id.phone_clear);
+        iv_name_clear = (ImageView) view.findViewById(R.id.name_clear);
+        iv_email_clear = (ImageView) view.findViewById(R.id.email_clear);
+        iv_referral_clear = (ImageView) view.findViewById(R.id.referral_clear);
     }
 
     @Override

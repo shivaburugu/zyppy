@@ -89,9 +89,9 @@ public class SignInFragment extends Fragment {
     };
 
     private void showContentView(){
-        phoneContainer = (RelativeLayout)rootView.findViewById(R.id.phone_container);
-        fl_phonecontainer = (FrameLayout)rootView.findViewById(R.id.phone_icon_container);
-        signUpText = (TextView)rootView.findViewById(R.id.signup_text);
+
+        initViews();
+        initPhoneView();
 
         signUpText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,8 +102,35 @@ public class SignInFragment extends Fragment {
             }
         });
 
-        iv_phone = (ImageView)rootView.findViewById(R.id.phone_icon);
-        et_phone = (EditText)rootView.findViewById(R.id.phone_no);
+        signInButton = (Button)rootView.findViewById(R.id.signin_button);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iv_clear.setVisibility(View.GONE);
+                if(mListener != null){
+                    mListener.onSignInSelected();
+                }
+            }
+        });
+
+        iv_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                et_phone.setText("");
+            }
+        });
+        View rootLayout = rootView.findViewById(R.id.login_root);
+        rootLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                KeypadUtils.hideKeyboard(getActivity());
+                et_phone.clearFocus();
+                iv_clear.setVisibility(View.GONE);
+            }
+        });
+    }
+
+    private void initPhoneView() {
         et_phone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
@@ -124,7 +151,7 @@ public class SignInFragment extends Fragment {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                 if(charSequence.toString().length() == 0){
-                    fl_phonecontainer.setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.transparent));
+                    fl_phonecontainer.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.transparent));
                     signInButton.setEnabled(false);
                     iv_clear.setVisibility(View.GONE);
                 } else if(charSequence.toString().length() > 0 && charSequence.toString().length() < MAX_PHONE_NUMBER_LENGTH){
@@ -154,43 +181,22 @@ public class SignInFragment extends Fragment {
                     et_phone.clearFocus();
                     iv_clear.setVisibility(View.GONE);
                     if(et_phone.getText() != null && et_phone.getText().toString().length() == MAX_PHONE_NUMBER_LENGTH){
-                        //iv_phone.setSelected(true);
-                        //fl_phonecontainer.setSelected(true);
                         fl_phonecontainer.setBackgroundResource(R.drawable.selector_phone_background);
                     } else {
-                        //iv_phone.setSelected(false);
                     }
                 }
                 return false;
             }
         });
+    }
 
-        signInButton = (Button)rootView.findViewById(R.id.signin_button);
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mListener != null){
-                    mListener.onSignInSelected();
-                }
-            }
-        });
-
+    private void initViews() {
+        phoneContainer = (RelativeLayout)rootView.findViewById(R.id.phone_container);
+        fl_phonecontainer = (FrameLayout)rootView.findViewById(R.id.phone_icon_container);
+        signUpText = (TextView)rootView.findViewById(R.id.signup_text);
+        iv_phone = (ImageView)rootView.findViewById(R.id.phone_icon);
+        et_phone = (EditText)rootView.findViewById(R.id.phone_no);
         iv_clear = (ImageView)rootView.findViewById(R.id.phone_clear);
-        iv_clear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                et_phone.setText("");
-            }
-        });
-        View rootLayout = rootView.findViewById(R.id.login_root);
-        rootLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                KeypadUtils.hideKeyboard(getActivity());
-                et_phone.clearFocus();
-                iv_clear.setVisibility(View.GONE);
-            }
-        });
     }
 
     @Override
