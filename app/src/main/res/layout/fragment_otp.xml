@@ -101,6 +101,7 @@
         android:layout_marginTop="@dimen/dimen_24dp"/>
 
     <Button
+        android:id="@+id/verify"
         android:layout_below="@id/resend_otp_text"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_42dp"

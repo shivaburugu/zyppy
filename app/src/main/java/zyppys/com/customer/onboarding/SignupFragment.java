@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -49,7 +50,7 @@ public class SignupFragment extends Fragment {
     private ImageView iv_email_clear;
     private ImageView iv_referral_clear;
     private int MAX_PHONE_NUMBER_LENGTH = 10;
-
+    private Button sinUpButton;
     public SignupFragment() {
         // Required empty public constructor
     }
@@ -70,6 +71,15 @@ public class SignupFragment extends Fragment {
             public void onClick(View view) {
                 if(mListener != null){
                     mListener.onSignUpClosed();
+                }
+            }
+        });
+
+        sinUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mListener != null){
+                    mListener.onSignInSelected();
                 }
             }
         });
@@ -309,7 +319,9 @@ public class SignupFragment extends Fragment {
         iv_name_clear = (ImageView) view.findViewById(R.id.name_clear);
         iv_email_clear = (ImageView) view.findViewById(R.id.email_clear);
         iv_referral_clear = (ImageView) view.findViewById(R.id.referral_clear);
+        sinUpButton = (Button)view.findViewById(R.id.signup_button);
     }
+
 
     @Override
     public void onAttach(Context context) {

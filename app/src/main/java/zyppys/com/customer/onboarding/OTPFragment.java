@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import zyppys.com.customer.R;
@@ -19,6 +20,7 @@ public class OTPFragment extends Fragment {
 
     private OnBoardingListener mListener;
     private ImageView closeImg;
+    private Button bt_verify;
     public OTPFragment() {
         // Required empty public constructor
     }
@@ -28,6 +30,16 @@ public class OTPFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_otp, container, false);
+        bt_verify = (Button)view.findViewById(R.id.verify);
+
+        bt_verify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mListener != null){
+                    mListener.onVerificationCompleted();
+                }
+            }
+        });
         closeImg = (ImageView)view.findViewById(R.id.close_img);
         closeImg.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,6 +1,7 @@
 package zyppys.com.customer.onboarding;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -61,5 +62,13 @@ public class OnboardingActivity extends AppCompatActivity implements OnBoardingL
     @Override
     public void onSignInClosed() {
         getSupportFragmentManager().popBackStack();
+    }
+
+    @Override
+    public void onVerificationCompleted() {
+        Intent intent = new Intent();
+        intent.setClass(OnboardingActivity.this,WelcomeActivity.class);
+        startActivity(intent);
+
     }
 }

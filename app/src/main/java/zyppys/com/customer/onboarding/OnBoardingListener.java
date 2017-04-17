@@ -13,4 +13,6 @@ public interface OnBoardingListener {
     public void onSignUpClosed();
 
     public void onSignInClosed();
+
+    public void onVerificationCompleted();
 }
