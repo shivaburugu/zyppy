@@ -44,5 +44,7 @@
     <dimen name="dimen_200dp">225dp</dimen>
     <dimen name="dimen_248dp">279dp</dimen>
     <dimen name="dimen_272dp">306dp</dimen>
-
+    <dimen name="nav_header_vertical_spacing">18dp</dimen>
+    <dimen name="nav_header_height">180dp</dimen>
+    <dimen name="fab_margin">18dp</dimen>
 </resources>
