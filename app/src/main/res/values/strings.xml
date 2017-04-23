@@ -29,4 +29,12 @@
     <string name="hotels_rooms">Hotels/Rooms</string>
     <string name="packages">Package</string>
     <string name="carpool">Carpool</string>
+    <string name="packages_starting_from">Packages Starting from %1$s</string>
+    <string name="base_fare">Base Fare:</string>
+    <string name="service_tax">Service Tax:</string>
+    <string name="fare_info">Fare Info</string>
+    <string name="total_approx">Total (Approx)</string>
+    <string name="traveller_name">Traveller Name</string>
+    <string name="coupon_code">Coupon Code</string>
+    <string name="book_now">Book Now</string>
 </resources>

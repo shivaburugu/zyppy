@@ -1,0 +1,155 @@
+package zyppys.com.customer.landing.packages;
+
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import java.util.ArrayList;
+
+import zyppys.com.customer.R;
+import zyppys.com.customer.utils.ItemClickSupport;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link OnPackageFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link PackageFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class PackageFragment extends Fragment {
+
+
+    private RecyclerView mRecyclerView;
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    private OnPackageFragmentInteractionListener mListener;
+    private PackagesListAdapter mAdapter;
+
+    public PackageFragment() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment PackageFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static PackageFragment newInstance(String param1, String param2) {
+        PackageFragment fragment = new PackageFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_package, container, false);
+
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        ArrayList<PackageModel> packageModelArrayList = getPackagesModel();
+        mAdapter = new PackagesListAdapter(packageModelArrayList,getActivity());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.setAdapter(mAdapter);
+
+        ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                Intent intent = new Intent(getActivity(),PackageDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+        return view;
+    }
+
+    private ArrayList<PackageModel> getPackagesModel(){
+        ArrayList<PackageModel> packageModelArrayList = new ArrayList<>();
+
+        packageModelArrayList.add(new PackageModel("http://zyppys.com/assets/images/Charminar.jpg",
+                "Hyderabad Tour","Total (Approx) ₹2,292","",""));
+        packageModelArrayList.add(new PackageModel("http://zyppys.com/assets/images/vijayawada.jpg",
+                "Vijayawada","Total (Approx) ₹2,989","",""));
+        packageModelArrayList.add(new PackageModel("http://zyppys.com/assets/images/srisailam.jpg",
+                "Srisailam","Total (Approx) ₹4,933","",""));
+        packageModelArrayList.add(new PackageModel("http://zyppys.com/assets/images/Yadhagirigutta.jpg",
+                "Yadagirigutta","Total (Approx) ₹2,360","",""));
+        packageModelArrayList.add(new PackageModel("http://zyppys.com/assets/images/Ramoji.jpg",
+                "Ramoji Film City","Total (Approx) ₹1,590","",""));
+        return  packageModelArrayList;
+    }
+
+
+    // TODO: Rename method, update argument and hook method into UI event
+    public void onButtonPressed(Uri uri) {
+        if (mListener != null) {
+            mListener.onFragmentInteraction(uri);
+        }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnPackageFragmentInteractionListener) {
+            mListener = (OnPackageFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnPackageFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnPackageFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
+    }
+}

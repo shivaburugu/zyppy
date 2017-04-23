@@ -11,6 +11,7 @@
 
 
     <LinearLayout
+        android:id="@+id/tab_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -23,14 +24,15 @@
             android:orientation="horizontal">
 
             <RelativeLayout
+                android:id="@+id/cars_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_48dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="@dimen/dimen_1dp"
                 android:layout_marginStart="@dimen/dimen_1dp"
-                android:layout_marginRight="@dimen/dimen_0_5dp"
-                android:layout_marginEnd="@dimen/dimen_0_5dp"
-                android:layout_marginBottom="@dimen/dimen_0_5dp"
+                android:layout_marginRight="@dimen/dimen_0_2_5dp"
+                android:layout_marginEnd="@dimen/dimen_0_2_5dp"
+                android:layout_marginBottom="@dimen/dimen_0_2_5dp"
                 android:background="@color/banner_bg_color">
             <TextView
                 android:layout_width="wrap_content"
@@ -50,14 +52,15 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/hotels_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_48dp"
                 android:layout_weight="1"
                 android:layout_marginRight="@dimen/dimen_1dp"
                 android:layout_marginStart="@dimen/dimen_1dp"
-                android:layout_marginLeft="@dimen/dimen_0_5dp"
-                android:layout_marginEnd="@dimen/dimen_0_5dp"
-                android:layout_marginBottom="@dimen/dimen_0_5dp"
+                android:layout_marginLeft="@dimen/dimen_0_2_5dp"
+                android:layout_marginEnd="@dimen/dimen_0_2_5dp"
+                android:layout_marginBottom="@dimen/dimen_0_2_5dp"
                 android:background="@color/banner_bg_color">
                 <TextView
                     android:layout_width="wrap_content"
@@ -83,14 +86,15 @@
             android:orientation="horizontal">
 
             <RelativeLayout
+                android:id="@+id/package_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_48dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="@dimen/dimen_1dp"
                 android:layout_marginStart="@dimen/dimen_1dp"
-                android:layout_marginRight="@dimen/dimen_0_5dp"
-                android:layout_marginEnd="@dimen/dimen_0_5dp"
-                android:layout_marginBottom="@dimen/dimen_0_5dp"
+                android:layout_marginRight="@dimen/dimen_0_2_5dp"
+                android:layout_marginEnd="@dimen/dimen_0_2_5dp"
+                android:layout_marginBottom="@dimen/dimen_0_2_5dp"
                 android:background="@color/banner_bg_color">
                 <TextView
                     android:layout_width="wrap_content"
@@ -110,14 +114,15 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/carpool_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_48dp"
                 android:layout_weight="1"
                 android:layout_marginRight="@dimen/dimen_1dp"
                 android:layout_marginStart="@dimen/dimen_1dp"
-                android:layout_marginLeft="@dimen/dimen_0_5dp"
-                android:layout_marginEnd="@dimen/dimen_0_5dp"
-                android:layout_marginBottom="@dimen/dimen_0_5dp"
+                android:layout_marginLeft="@dimen/dimen_0_2_5dp"
+                android:layout_marginEnd="@dimen/dimen_0_2_5dp"
+                android:layout_marginBottom="@dimen/dimen_0_2_5dp"
                 android:background="@color/banner_bg_color">
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,33 +143,11 @@
         </LinearLayout>
 
     </LinearLayout>
-    <!--    <Button android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_48dp"
-                android:layout_marginLeft="@dimen/dimen_2dp"
-                android:layout_marginStart="@dimen/dimen_2dp"
-                android:layout_marginRight="@dimen/dimen_1dp"
-                android:layout_marginEnd="@dimen/dimen_1dp"
-                android:layout_marginBottom="@dimen/dimen_1dp"
-                android:text="@string/cars"
-                android:background="@color/banner_bg_color"
-                android:textColor="@color/white"
-                android:drawablePadding="@dimen/dimen_2dp"
-                android:drawableLeft="@drawable/car_icon"
-                android:drawableStart="@drawable/car_icon"/>-->
 
-    <!--
-        <Button
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:duplicateParentState="true"
-            android:layout_width="wrap_content"
-            android:text="New User"
-            android:textSize="15sp"
-            android:id="@android:id/button1"
-            android:textColor="@android:color/white"
-            android:drawablePadding="6dp"
-            android:drawableLeft="@drawable/car_icon"
-            android:layout_height="64dp" />
-    -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_below="@+id/tab_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

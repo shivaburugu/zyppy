@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="zyppys.com.customer.landing.packages.PackageDetailActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/SplashTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/SplashTheme.PopupOverlay"/>
+
+    </android.support.design.widget.AppBarLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:id="@+id/img_container"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_120dp">
+                <ImageView
+                    android:id="@+id/img_package"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <FrameLayout
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_32dp"
+                    android:background="@drawable/gradient_background_large">
+                    <TextView
+                        android:id="@+id/tv_tour_name"
+                        tools:text="Hyderabad Tour"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_16sp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/dimen_4dp"
+                        android:layout_marginLeft="@dimen/dimen_4dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/car_fare_container"
+                android:layout_below="@+id/img_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="@dimen/dimen_16dp"
+                android:layout_marginLeft="@dimen/dimen_16dp"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp">
+                <TextView
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:text="@string/fare_info"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/base_fare_lbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/base_fare"/>
+                    <TextView
+                        android:id="@+id/tv_base_fare"
+                        tools:text="2,662"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/service_tax_lbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/service_tax"/>
+                    <TextView
+
+                        tools:text="(6)% $130"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_16dp">
+                    <TextView
+                        android:id="@+id/total_lbl"
+                        android:textSize="@dimen/dimen_16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/total_approx"/>
+                    <TextView
+                        android:textSize="@dimen/dimen_16sp"
+                        tools:text="(6)% $130"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:drawablePadding="@dimen/dimen_8dp"
+                        android:drawableRight="@drawable/ic_info_outline_black_18dp"/>
+                </RelativeLayout>
+                <View
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:layout_marginBottom="@dimen/dimen_8dp"
+                    android:background="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_120dp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:layout_marginBottom="@dimen/dimen_8dp"
+                    android:background="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/traveller_layout"
+                android:background="@color/background_dark"
+                android:layout_below="@+id/car_fare_container"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_48dp"
+                android:layout_marginRight="@dimen/dimen_16dp"
+                android:layout_marginLeft="@dimen/dimen_16dp"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp">
+
+                <ImageView
+                    android:id="@+id/img_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_16dp"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:src="@drawable/people"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_8dp"
+                    android:layout_marginStart="@dimen/dimen_8dp"
+                    android:layout_toRightOf="@+id/img_icon">
+                    <TextView
+                        android:text="@string/traveller_name"
+                        android:id="@+id/traveler_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="@string/traveller_name"
+                        android:id="@+id/traveler_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_marginRight="@dimen/dimen_8dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/warning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_below="@+id/traveller_layout"
+                android:id="@+id/coupon_container"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_42dp"
+                android:layout_marginRight="@dimen/dimen_16dp"
+                android:layout_marginLeft="@dimen/dimen_16dp"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_marginBottom="@dimen/dimen_72dp"
+                android:background="@drawable/selector_text_box_bg">
+
+                <FrameLayout
+                    android:id="@+id/coupon_icon_container"
+                    android:layout_width="@dimen/dimen_32dp"
+                    android:layout_height="@dimen/dimen_32dp"
+                    android:background="@color/transparent"
+                    android:layout_marginLeft="@dimen/dimen_8dp"
+                    android:layout_marginStart="@dimen/dimen_8dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:id="@+id/coupon_icon"
+                        android:background="@drawable/coupon_code"
+                        android:layout_width="@dimen/dimen_24dp"
+                        android:layout_height="@dimen/dimen_24dp"
+                        android:layout_margin="@dimen/dimen_8dp"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:scaleType="fitXY"/>
+                </FrameLayout>
+
+                <EditText
+                    android:id="@+id/coupon"
+                    android:layout_toRightOf="@+id/coupon_icon_container"
+                    android:layout_toLeftOf="@+id/coupon_clear"
+                    android:layout_toStartOf="@+id/coupon_clear"
+                    android:layout_toEndOf="@+id/coupon_icon_container"
+                    android:paddingLeft="@dimen/dimen_8dp"
+                    android:paddingRight="@dimen/dimen_8dp"
+                    android:paddingStart="@dimen/dimen_8dp"
+                    android:paddingEnd="@dimen/dimen_8dp"
+                    android:layout_width="match_parent"
+                    android:imeOptions="actionDone"
+                    android:hint="@string/coupon_code"
+                    android:background="@color/transparent"
+                    android:textColorHint="@color/white"
+                    android:inputType="textEmailAddress"
+                    android:layout_height="@dimen/dimen_52dp"
+                    android:maxLength="10"/>
+
+                <ImageView
+                    android:id="@+id/coupon_clear"
+                    android:layout_width="@dimen/dimen_12dp"
+                    android:layout_height="@dimen/dimen_12dp"
+                    android:src="@drawable/close"
+                    android:background="@color/background_dark"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dimen_8dp"
+                    android:layout_marginEnd="@dimen/dimen_8dp"
+                    android:layout_alignParentEnd="true"
+                    android:visibility="gone"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_64dp">
+
+        <Button
+            android:textColor="@color/white"
+            android:text="@string/book_now"
+            android:textAllCaps="false"
+            android:layout_centerInParent="true"
+            android:layout_width="@dimen/dimen_200dp"
+            android:layout_height="@dimen/dimen_36dp"
+            android:background="@color/text_dark"/>
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
