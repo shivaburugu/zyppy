@@ -50,6 +50,7 @@
     <string name="_100_km">₹100 /km</string>
     <string name="_km_day">₹120 km/day</string>
     <string name="more_information">More Information</string>
+    <string name="from">From</string>
 
 
 </resources>

@@ -1,6 +1,7 @@
 package zyppys.com.customer.landing;
 
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -23,6 +24,7 @@ import zyppys.com.customer.landing.carpool.CarpoolFragment;
 import zyppys.com.customer.landing.cars.CarsFragment;
 import zyppys.com.customer.landing.hotel.HotelsFragment;
 import zyppys.com.customer.landing.packages.PackageFragment;
+import zyppys.com.customer.landing.packages.PackageSelectionActivity;
 
 
 public class LandingActivity extends AppCompatActivity
@@ -84,6 +86,13 @@ public class LandingActivity extends AppCompatActivity
         carsView = findViewById(R.id.cars_layout);
         hotelsView = findViewById(R.id.hotels_layout);
         packageView = findViewById(R.id.package_layout);
+        packageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent packageSelectionIntent = new Intent(LandingActivity.this, PackageSelectionActivity.class);
+                startActivity(packageSelectionIntent);
+            }
+        });
     }
 
 

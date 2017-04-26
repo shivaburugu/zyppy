@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:id="@+id/location_item_layout"
+    android:layout_height="@dimen/dimen_48dp">
+
+    <TextView
+        android:layout_marginLeft="@dimen/dimen_16dp"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:id="@+id/location_name"
+        tools:text="Hyderabad"
+        android:drawableLeft="@drawable/location_marker"
+        android:drawableStart="@drawable/location_marker"
+        android:drawablePadding="@dimen/dimen_16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textColor="@color/text_dark"/>
+</RelativeLayout>

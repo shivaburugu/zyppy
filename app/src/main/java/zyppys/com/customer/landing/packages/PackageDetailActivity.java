@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 
 import zyppys.com.customer.MoreInfoActivity;
 import zyppys.com.customer.R;
+import zyppys.com.customer.TravellerInfoActivity;
 import zyppys.com.customer.utils.ItemClickSupport;
 
 
@@ -31,6 +33,7 @@ public class PackageDetailActivity extends AppCompatActivity {
     private CarsSelectionAdapter mAdapter;
     private PackageModel mPackageModel;
     private TextView info_icon;
+    private RelativeLayout travellerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +42,13 @@ public class PackageDetailActivity extends AppCompatActivity {
         // toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
+
         mPackageModel = getIntent().getParcelableExtra(EXTRA_PACKAGE_DETAILS);
         info_icon = (TextView) findViewById(R.id.info_icon);
         info_icon.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +56,16 @@ public class PackageDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent moreInfoIntent = new Intent(PackageDetailActivity.this, MoreInfoActivity.class);
                 startActivity(moreInfoIntent);
+                overridePendingTransition( R.anim.slide_in_up, R.anim.slide_out_up );
+            }
+        });
+
+        travellerLayout = (RelativeLayout)findViewById(R.id.traveller_layout);
+        travellerLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent travellerInfoIntent = new Intent(PackageDetailActivity.this, TravellerInfoActivity.class);
+                startActivityForResult(travellerInfoIntent,0);
                 overridePendingTransition( R.anim.slide_in_up, R.anim.slide_out_up );
             }
         });
