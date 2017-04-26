@@ -9,6 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ScrollView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -18,9 +24,11 @@ import zyppys.com.customer.utils.ItemClickSupport;
 
 public class PackageDetailActivity extends AppCompatActivity {
 
+    public static String EXTRA_PACKAGE_DETAILS = "PackageDetails";
     private RecyclerView mRecyclerView;
     private ArrayList<PackageModel> carsModel;
     private CarsSelectionAdapter mAdapter;
+    private PackageModel mPackageModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +41,12 @@ public class PackageDetailActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+        mPackageModel = getIntent().getParcelableExtra(EXTRA_PACKAGE_DETAILS);
 
+        ImageView iv_img = (ImageView)findViewById(R.id.img_package);
+        if(mPackageModel != null && mPackageModel.getImgURL() != null) {
+            Glide.with(this).load(mPackageModel.getImgURL()).into(iv_img);
+        }
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         ArrayList<CarsSelectionModel> carsSeectionModelList = getCarsModel();
         mAdapter = new CarsSelectionAdapter(carsSeectionModelList, this);
@@ -41,7 +54,7 @@ public class PackageDetailActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mAdapter);
-
+        mAdapter.setSelectedItem(0);
         ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {

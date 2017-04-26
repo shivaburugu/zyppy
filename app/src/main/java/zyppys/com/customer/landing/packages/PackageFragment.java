@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import zyppys.com.customer.R;
 import zyppys.com.customer.utils.ItemClickSupport;
 
+import static zyppys.com.customer.landing.packages.PackageDetailActivity.EXTRA_PACKAGE_DETAILS;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,7 +82,7 @@ public class PackageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_package, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        ArrayList<PackageModel> packageModelArrayList = getPackagesModel();
+        final ArrayList<PackageModel> packageModelArrayList = getPackagesModel();
         mAdapter = new PackagesListAdapter(packageModelArrayList,getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -91,6 +93,7 @@ public class PackageFragment extends Fragment {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 Intent intent = new Intent(getActivity(),PackageDetailActivity.class);
+                intent.putExtra(EXTRA_PACKAGE_DETAILS,packageModelArrayList.get(position));
                 startActivity(intent);
             }
         });

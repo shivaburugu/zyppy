@@ -1,10 +1,13 @@
 package zyppys.com.customer.landing.packages;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Apple on 4/23/17.
  */
 
-public class PackageModel {
+public class PackageModel implements Parcelable{
     private String imgURL;
     private String name;
     private String totalAmt;
@@ -18,6 +21,26 @@ public class PackageModel {
         this.baseFare = baseFare;
         this.serviceTax = serviceTax;
     }
+
+    protected PackageModel(Parcel in) {
+        imgURL = in.readString();
+        name = in.readString();
+        totalAmt = in.readString();
+        baseFare = in.readString();
+        serviceTax = in.readString();
+    }
+
+    public static final Creator<PackageModel> CREATOR = new Creator<PackageModel>() {
+        @Override
+        public PackageModel createFromParcel(Parcel in) {
+            return new PackageModel(in);
+        }
+
+        @Override
+        public PackageModel[] newArray(int size) {
+            return new PackageModel[size];
+        }
+    };
 
     public String getImgURL() {
         return imgURL;
@@ -57,5 +80,19 @@ public class PackageModel {
 
     public void setServiceTax(String serviceTax) {
         this.serviceTax = serviceTax;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(imgURL);
+        parcel.writeString(name);
+        parcel.writeString(totalAmt);
+        parcel.writeString(baseFare);
+        parcel.writeString(serviceTax);
     }
 }
