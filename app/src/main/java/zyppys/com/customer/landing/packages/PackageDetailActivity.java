@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import zyppys.com.customer.MoreInfoActivity;
 import zyppys.com.customer.R;
 import zyppys.com.customer.utils.ItemClickSupport;
 
@@ -29,6 +30,7 @@ public class PackageDetailActivity extends AppCompatActivity {
     private ArrayList<PackageModel> carsModel;
     private CarsSelectionAdapter mAdapter;
     private PackageModel mPackageModel;
+    private TextView info_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,15 @@ public class PackageDetailActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         mPackageModel = getIntent().getParcelableExtra(EXTRA_PACKAGE_DETAILS);
+        info_icon = (TextView) findViewById(R.id.info_icon);
+        info_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent moreInfoIntent = new Intent(PackageDetailActivity.this, MoreInfoActivity.class);
+                startActivity(moreInfoIntent);
+                overridePendingTransition( R.anim.slide_in_up, R.anim.slide_out_up );
+            }
+        });
 
         ImageView iv_img = (ImageView)findViewById(R.id.img_package);
         if(mPackageModel != null && mPackageModel.getImgURL() != null) {

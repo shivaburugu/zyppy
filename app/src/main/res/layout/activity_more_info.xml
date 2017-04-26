@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/text_dark"
+    tools:context="zyppys.com.customer.MoreInfoActivity">
+
+    <RelativeLayout
+        android:background="@color/banner_bg_color"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/dimen_16sp"
+            android:textColor="@color/white"
+            android:text="@string/more_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginLeft="@dimen/dimen_36dp"
+        android:layout_marginStart="@dimen/dimen_36dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:text="@string/more_info_text_1"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginLeft="@dimen/dimen_36dp"
+        android:layout_marginStart="@dimen/dimen_36dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:text="@string/more_info_text_2"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginLeft="@dimen/dimen_36dp"
+        android:layout_marginStart="@dimen/dimen_36dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:text="@string/more_info_text_3"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginLeft="@dimen/dimen_36dp"
+        android:layout_marginStart="@dimen/dimen_36dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:text="@string/more_info_text_4"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginLeft="@dimen/dimen_36dp"
+        android:layout_marginStart="@dimen/dimen_36dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:text="@string/more_info_text_5"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:id="@+id/divider"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_marginLeft="@dimen/dimen_48dp"
+        android:layout_marginStart="@dimen/dimen_48dp"
+        android:layout_marginRight="@dimen/dimen_48dp"
+        android:layout_marginEnd="@dimen/dimen_48dp"
+        android:layout_height="@dimen/dimen_0_5dp"/>
+
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/dimen_36dp"
+        android:layout_marginStart="@dimen/dimen_36dp"
+        android:layout_marginRight="@dimen/dimen_36dp"
+        android:layout_marginEnd="@dimen/dimen_36dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/extra_cost_km_lbl"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/more_info_extra_cost_km"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/extra_cost_hr_lbl"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:layout_below="@id/extra_cost_km_lbl"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/more_info_extra_cost_hr"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/extra_cost_km_day_lbl"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:layout_below="@id/extra_cost_hr_lbl"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/more_info_min_km_day"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/extra_cost_km"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/_10_km"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/extra_cost_hr"
+            android:layout_below="@+id/extra_cost_km"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/_100_km"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/extra_cost_km_day"
+            android:layout_below="@+id/extra_cost_hr"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/_km_day"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/know_toll_charges"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_16sp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/more_info_know_toll_charge"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/close_icon"
+        android:src="@drawable/close"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="@dimen/dimen_32dp"
+        android:layout_height="@dimen/dimen_32dp"
+        android:layout_marginBottom="@dimen/dimen_16dp"/>
+    </RelativeLayout>
+</LinearLayout>

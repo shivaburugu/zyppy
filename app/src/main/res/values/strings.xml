@@ -37,4 +37,19 @@
     <string name="traveller_name">Traveller Name</string>
     <string name="coupon_code">Coupon Code</string>
     <string name="book_now">Book Now</string>
+    <string name="more_info_text_1">* Prices/Kms mentioned are approx.</string>
+    <string name="more_info_text_2">* Extra: Interstate tax, Toll parking.</string>
+    <string name="more_info_text_3">* No Extra Night Charges.</string>
+    <string name="more_info_text_4">* Pricing will be calculated from Pickup.</string>
+    <string name="more_info_text_5">* Midnight to midnight is a day.</string>
+    <string name="more_info_extra_cost_km">Extra cost/km:</string>
+    <string name="more_info_extra_cost_hr">Extra cost/hr:</string>
+    <string name="more_info_min_km_day">Min km/day:</string>
+    <string name="more_info_know_toll_charge"><u>Know Toll Charges (approx)</u></string>
+    <string name="_10_km">₹10 /km</string>
+    <string name="_100_km">₹100 /km</string>
+    <string name="_km_day">₹120 km/day</string>
+    <string name="more_information">More Information</string>
+
+
 </resources>

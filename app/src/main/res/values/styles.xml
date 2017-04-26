@@ -19,4 +19,10 @@
     <style name="SplashTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="SplashTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="ActionBarThemeOverlay" parent="">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorControlNormal">@color/enabled_bg</item>
+        <item name="colorControlHighlight">@color/enabled_bg</item>
+    </style>
 </resources>
